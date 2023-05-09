@@ -33,7 +33,7 @@ static void	*check_isfree(char **str)
 	return (NULL);
 }
 
-static void	ft_skip(char const *str, size_t *start, size_t *end, char c)
+static void	ft_skip(char *str, size_t *start, size_t *end, char c)
 {
 	while (str[*start] == c)
 		*start = *start + 1;
@@ -42,7 +42,7 @@ static void	ft_skip(char const *str, size_t *start, size_t *end, char c)
 		*end = *end + 1;
 }
 
-char	**ft_split(char const *str, char c)
+char	**ft_split(char *str, char c)
 {
 	char	**str_split;
 	size_t	start;
