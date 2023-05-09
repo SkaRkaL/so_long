@@ -1,9 +1,9 @@
 #include "so_long.h"
 
-size_t	ft_strlcpy(char *dst, char *src, size_t dstsize)
+int	ft_strlcpy(char *dst, char *src, int dstsize)
 {
-	size_t	i;
-	size_t	x;
+	int	i;
+	int	x;
 
 	x = ft_strlen(src);
 	i = 0;
@@ -19,10 +19,30 @@ size_t	ft_strlcpy(char *dst, char *src, size_t dstsize)
 	return (x);
 }
 
-char	*ft_substr(char *s, unsigned int start, size_t len)
+char	*ft_strdup(char *s1)
+{
+	int		len;
+	int		i;
+	char	*p;
+
+	len = ft_strlen(s1);
+	i = 0;
+	p = malloc(sizeof(char) * len + 1);
+	if (!p)
+		return (0);
+	while (i < len)
+	{
+		p[i] = s1[i];
+		i++;
+	}
+	p[len] = '\0';
+	return (p);
+}
+
+char	*ft_substr(char *s, unsigned int start, int len)
 {
 	char	*str;
-	size_t	i;
+	int	i;
 
 	if (!s)
 		return (NULL);
