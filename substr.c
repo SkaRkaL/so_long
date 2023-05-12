@@ -39,7 +39,7 @@ char	*ft_strdup(char *s1)
 	return (p);
 }
 
-char	*ft_substr(char *s, unsigned int start, int len)
+char	*ft_substr(char *s, int start, int len)
 {
 	char	*str;
 	int	i;
