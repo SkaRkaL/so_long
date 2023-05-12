@@ -12,11 +12,11 @@ int	test_ber(char *av)
 	return (1);
 }
 
-int main(int ac, char **av) 
+int	main(int ac, char **av)
 {
 	int		fd;
 	char	line[9999];
-	t_var	v;
+	t_data	v;
 
 	if (ac != 2)
 		return (0);
@@ -32,13 +32,18 @@ int main(int ac, char **av)
 	}
 	v.s = ft_split(gnl(fd, line), '\n');
 	if (v.s == NULL)
-		return (0);
-	if (test_newline(line) == 0 || map_check(v.s) == 0)
 	{
 		ft_putstr_fd("ERROR_MAP\n", 2);
 		return (1);
 	}
-	
+	if (test_newline(line) == 0 || map_check(&v) == 0)
+	{
+		ft_putstr_fd("ERROR_MAP\n", 2);
+		return (1);
+	}
+	printf("len ---> %d\n", v.x);
+	printf("len ---> %d\n", v.y);
+	exit(1);
 	for (int i = 0; v.s[i]; i++)
 	{
 		printf("%s\n", v.s[i]);
