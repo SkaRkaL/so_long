@@ -41,9 +41,6 @@ int	main(int ac, char **av)
 		ft_putstr_fd("ERROR_MAP\n", 2);
 		return (1);
 	}
-	printf("len ---> %d\n", v.x);
-	printf("len ---> %d\n", v.y);
-	exit(1);
 	for (int i = 0; v.s[i]; i++)
 	{
 		printf("%s\n", v.s[i]);

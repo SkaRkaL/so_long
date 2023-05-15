@@ -74,7 +74,7 @@ int	map_check(t_data *map)
 	if (__find(map->s, map) == 0)
 		return (0);
 	get_p_pos(map->s, map);
-	// if (valid_path(map, map) == 0)
-	// 	return (0);
+	if (valid_path(map) == 0)
+		return (0);
 	return (1);
 }

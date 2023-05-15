@@ -28,6 +28,7 @@ int		map_check(t_data *map);
 int		test_newline(char *line);
 int		__find(char **map, t_data *v);
 void	get_p_pos(char **map, t_data *pos);
+int		valid_path(t_data *v);
 //---------------------------------------
 char	*gnl(int fd, char *tr);
 void	ft_putchar_fd(char c, int fd);
