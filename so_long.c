@@ -28,7 +28,7 @@ int	main(int ac, char **av)
 	if (fd == -1)
 	{
 		ft_putstr_fd("ERROR fd\n", 2);
-		return (0);
+		return (1);
 	}
 	v.s = ft_split(gnl(fd, line), '\n');
 	if (v.s == NULL)
@@ -41,9 +41,13 @@ int	main(int ac, char **av)
 		ft_putstr_fd("ERROR_MAP\n", 2);
 		return (1);
 	}
+	// v.mlx = mlx_init();
+	// printf("[[[[[  %d  ]]]]]\n", v.c);
+	// exit(1);
+	ft_struct_initializer(&v);
 	for (int i = 0; v.s[i]; i++)
 	{
-		printf("%s\n", v.s[i]);
+		printf("> %s\n", v.s[i]);
 	}
 	return (0);
 }

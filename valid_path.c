@@ -1,39 +1,51 @@
 #include "so_long.h"
 
-void replaceCharacters(char **map, int row, int col) 
+int	row_size(char **tab)
 {
-    if (map[row][col] == 'C' || map[row][col] == 'E' || map[row][col] == 'P')
-	{
-        if (map[row][col] != '1')
-            map[row][col] = 'D';
-        else
-            return ;
-    }
-	else
-	{
-        return ;
-    }
+	int	i;
 
-    // Replace character to the left
-    replaceCharacters(map, row, col - 1);
-    // Replace character to the right
-    replaceCharacters(map, row, col + 1);
-    // Replace character above
-    replaceCharacters(map, row - 1, col);
-    // Replace character below
-    replaceCharacters(map, row + 1, col);
+	i = 0;
+	while (tab[i])
+		i++;
+	return (i);
 }
 
-int	valid_path(t_data *v)
+void	ft_flood_fill(char **map, int x, int y)
 {
-	t_data	*tmp;
+    if (y < 0 || y >= ft_strlen(map[0]) ||  x < 0 || x >= row_size(map) || map[x][y] == '1' || map[x][y] == 'F' || map[x][y] == 'E')
+        return ;
+	if (map[x][y] != 'P')
+		map[x][y] = 'F';
+	ft_flood_fill(map, x - 1, y);
+	ft_flood_fill(map, x + 1, y);
+	ft_flood_fill(map, x, y - 1);
+	ft_flood_fill(map, x, y + 1);
+}
 
-	tmp = v;
-	replaceCharacters(tmp->s, 0, 0);
-	for (int i = 0; tmp->s[i]; i++)
+void	ft_check_validpath(char **map)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (map[i])
 	{
-		printf("%s\n", tmp->s[i]);
+		j = 0;
+		while (map[i][j])
+		{
+			if ((map[i][j] == 'C') || (map[i][j] == 'E' && map[i - 1][j] != 'F' && map[i + 1][j] != 'F' && map[i][j - 1] != 'F' && map[i][j + 1] != 'F'))
+            {
+                ft_putstr_fd("ERROR Valid_Path\n", 2);
+                exit(1);
+            }
+			j++;
+		}
+		i++;
 	}
-	exit(1);
-	return (1);
+}
+
+void	valid_path(t_data *v, char **map)
+{
+	ft_flood_fill(map, v->x, v->y);
+    ft_check_validpath(map);
 }

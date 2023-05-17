@@ -58,10 +58,19 @@ static int check_p_c_e(char **map)
 
 int	map_check(t_data *map)
 {
-	int	i;
+	int	i = 0;
+	char	**tmp;
 
 	if (!map)
 		return (0);
+	tmp = (char **)malloc(sizeof(char *) * (row_size(map->s) + 1));
+	while (map->s[i])
+	{
+		tmp[i] = ft_substr(map->s[i], 0, ft_strlen(map->s[0]));
+		i++;
+	}
+	tmp[i] = NULL;
+	i = 0;
 	map->col = ft_strlen(map->s[0]);
 	if (check_len(&i, map->col, map->s) == 0)
 		return (0);
@@ -74,7 +83,6 @@ int	map_check(t_data *map)
 	if (__find(map->s, map) == 0)
 		return (0);
 	get_p_pos(map->s, map);
-	if (valid_path(map) == 0)
-		return (0);
+	valid_path(map, tmp);
 	return (1);
 }
