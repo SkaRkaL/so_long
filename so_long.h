@@ -67,8 +67,10 @@ void	draw_textures(t_data *map);
 int		ft_close(t_data *map);
 void	ft_destory_images(t_data *map);
 void	ft_load_images(t_data *g_data);
+void	ft_finish_game(t_data *map);
 //---------------------------------------
 char	*gnl(int fd, char *tr);
+void	ft_collect(t_data *map);
 void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 //---------------------------------------
