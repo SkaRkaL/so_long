@@ -21,8 +21,9 @@ static int ft_hook(int keycode, t_data *map)
 		|| keycode == S || keycode == ARROW_DOWN
 		|| keycode == W || keycode == ARROW_UP)
 	{
+		// puts("1111  in");
 		ft_destory_images(map);
-		// ft_move_player(keycode, map);
+
 		ft_load_images(map);
 		draw_textures(map);
 	}
@@ -62,9 +63,10 @@ int	main(int ac, char **av)
 	draw_textures(&v);
 	mlx_hook(v.mlx_wind, 2, 0, ft_hook, &v);
 	mlx_hook(v.mlx_wind, 17, 0, ft_close, &v);
-	for (int i = 0; v.s[i]; i++)
-	{
-		printf("> %s\n", v.s[i]);
-	}
+	mlx_loop(v.mlx_p);
+	// for (int i = 0; v.s[i]; i++)
+	// {
+	// 	printf("> %s\n", v.s[i]);
+	// }
 	return (0);
 }
