@@ -12,6 +12,23 @@ int	test_ber(char *av)
 	return (1);
 }
 
+static int ft_hook(int keycode, t_data *map)
+{
+	if (keycode == 53)
+		ft_close(map);
+	if (keycode == A || keycode == ARROW_LEFT
+		|| keycode == D || keycode == ARROW_RIGHT
+		|| keycode == S || keycode == ARROW_DOWN
+		|| keycode == W || keycode == ARROW_UP)
+	{
+		ft_destory_images(map);
+		// ft_move_player(keycode, map);
+		ft_load_images(map);
+		draw_textures(map);
+	}
+	return (1);
+}
+
 int	main(int ac, char **av)
 {
 	int		fd;
@@ -41,10 +58,10 @@ int	main(int ac, char **av)
 		ft_putstr_fd("ERROR_MAP\n", 2);
 		return (1);
 	}
-	// v.mlx = mlx_init();
-	// printf("[[[[[  %d  ]]]]]\n", v.c);
-	// exit(1);
 	ft_struct_initializer(&v);
+	draw_textures(&v);
+	mlx_hook(v.mlx_wind, 2, 0, ft_hook, &v);
+	mlx_hook(v.mlx_wind, 17, 0, ft_close, &v);
 	for (int i = 0; v.s[i]; i++)
 	{
 		printf("> %s\n", v.s[i]);

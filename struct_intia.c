@@ -34,15 +34,6 @@ void	*ft_xpm2image(void *mlx_p, char *xpm)
 	return (ptr);
 }
 
-void	ft_load_images(t_data *g_data)
-{
-	g_data->wall = ft_xpm2image(g_data->mlx_p, WALL);
-	g_data->space = ft_xpm2image(g_data->mlx_p, SP);
-	g_data->coin = ft_xpm2image(g_data->mlx_p, CO);
-	g_data->player = ft_xpm2image(g_data->mlx_p, PL);
-	if (g_data->c > 0)
-		g_data->exit = ft_xpm2image(g_data->mlx_p, EX);
-}
 
 void	ft_struct_initializer(t_data *map)
 {
@@ -63,4 +54,5 @@ void	ft_struct_initializer(t_data *map)
 	map->pos_y = pos_player(map->s, 'y');
 	map->moves = 0;
 	ft_load_images(map);
+	mlx_loop(map->mlx_p);
 }

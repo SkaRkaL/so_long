@@ -7,6 +7,16 @@
 # include <fcntl.h>
 # include <mlx.h>
 
+# define KEYPRESS 2
+# define A 0
+# define S 1
+# define D 2
+# define W 13
+# define ARROW_LEFT 123
+# define ARROW_RIGHT 124
+# define ARROW_DOWN 125
+# define ARROW_UP 126
+
 # define CO "textures/coin.xpm"
 # define EX "textures/Dor.xpm"
 # define PL "textures/ghost.xpm"
@@ -52,7 +62,11 @@ void	get_p_pos(char **map, t_data *pos);
 void	valid_path(t_data *v, char **map);
 int		row_size(char **tab);
 void	ft_struct_initializer(t_data *map);
-void	*mlx_window(t_data *g_data);
+void	*mlx_window(t_data *map);
+void	draw_textures(t_data *map);
+int		ft_close(t_data *map);
+void	ft_destory_images(t_data *map);
+void	ft_load_images(t_data *g_data);
 //---------------------------------------
 char	*gnl(int fd, char *tr);
 void	ft_putchar_fd(char c, int fd);
