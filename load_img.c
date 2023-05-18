@@ -5,7 +5,7 @@ void *xpm_to_image(void *mlx_p, char *xpm)
 	int wh;
 	void *ptr;
 
-	wh = 65;
+	wh = 64;
 	ptr = mlx_xpm_file_to_image(mlx_p, xpm, &wh, &wh);
 	if (!ptr)
 		puts("mlx_xpm_file_to_image function fails!");

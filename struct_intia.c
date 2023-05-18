@@ -27,7 +27,7 @@ void *ft_xpm2image(void *mlx_p, char *xpm)
 	int wh;
 	void *ptr;
 
-	wh = 65;
+	wh = 64;
 	ptr = mlx_xpm_file_to_image(mlx_p, xpm, &wh, &wh);
 	if (!ptr)
 		exit(write(2, "Error xpm file\n", 17));
@@ -38,10 +38,10 @@ void ft_struct_initializer(t_data *map)
 {
 	int wh;
 
-	wh = 65;
+	wh = 64;
 	map->wh = wh;
-	map->height = row_size(map->s) * 65;
-	map->width = (ft_strlen(map->s[0]) - 1) * 65;
+	map->height = row_size(map->s) * 64;
+	map->width = (ft_strlen(map->s[0]) - 1) * 64;
 	map->mlx_p = mlx_init();
 	if (!map->mlx_p)
 	{

@@ -22,15 +22,15 @@ void draw_textures(t_data *map)
 		while (map->s[y][x])
 		{
 			if (map->s[y][x] == '1')
-				__image(map, x * 65, y * 65, map->wall);
+				__image(map, x * 64, y * 64, map->wall);
 			else if (map->s[y][x] == '0')
-				__image(map, x * 65, y * 65, map->space);
+				__image(map, x * 64, y * 64, map->space);
 			else if (map->s[y][x] == 'P')
-				__image(map, x * 65, y * 65, map->player);
+				__image(map, x * 64, y * 64, map->player);
 			else if (map->s[y][x] == 'C')
-				__image(map, x * 65, y * 65, map->coin);
+				__image(map, x * 64, y * 64, map->coin);
 			else if (map->s[y][x] == 'E')
-				__image(map, x * 65, y * 65, map->exit);
+				__image(map, x * 64, y * 64, map->exit);
 			x++;
 		}
 		y++;
