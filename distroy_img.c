@@ -2,6 +2,9 @@
 
 int	ft_close(t_data *map)
 {
+	ft_putstr_fd(" \t........... ", 1);
+	ft_putstr_fd("\n\t| You out |\n", 1);
+	ft_putstr_fd(" \t'''''''''''\n", 1);
 	mlx_destroy_window(map->mlx_p, map->mlx_wind);
 	exit(0);
 }

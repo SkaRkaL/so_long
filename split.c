@@ -19,7 +19,7 @@ static size_t	counter(char const *s, char c)
 	return (counter);
 }
 
-static void	*check_isfree(char **str)
+void	*check_isfree(char **str)
 {
 	size_t	i;
 

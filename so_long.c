@@ -16,14 +16,11 @@ static int ft_hook(int keycode, t_data *map)
 {
 	if (keycode == 53)
 		ft_close(map);
-	if (keycode == A || keycode == ARROW_LEFT
-		|| keycode == D || keycode == ARROW_RIGHT
-		|| keycode == S || keycode == ARROW_DOWN
-		|| keycode == W || keycode == ARROW_UP)
+	if (keycode == A || keycode == D || keycode == S || keycode == W ||
+		keycode == ARROW_RIGHT || keycode == ARROW_LEFT || keycode == ARROW_UP || keycode == ARROW_DOWN)
 	{
-		// puts("1111  in");
 		ft_destory_images(map);
-
+		move_p(keycode, map);
 		ft_load_images(map);
 		draw_textures(map);
 	}
@@ -34,7 +31,7 @@ int	main(int ac, char **av)
 {
 	int		fd;
 	char	line[9999];
-	t_data	v;
+	t_data	var;
 
 	if (ac != 2)
 		return (0);
@@ -48,25 +45,23 @@ int	main(int ac, char **av)
 		ft_putstr_fd("ERROR fd\n", 2);
 		return (1);
 	}
-	v.s = ft_split(gnl(fd, line), '\n');
-	if (v.s == NULL)
+	var.s = ft_split(gnl(fd, line), '\n');
+	if (var.s == NULL)
 	{
 		ft_putstr_fd("ERROR_MAP\n", 2);
 		return (1);
 	}
-	if (test_newline(line) == 0 || map_check(&v) == 0)
+	if (test_newline(line) == 0 || map_check(&var) == 0)
 	{
 		ft_putstr_fd("ERROR_MAP\n", 2);
 		return (1);
 	}
-	ft_struct_initializer(&v);
-	draw_textures(&v);
-	mlx_hook(v.mlx_wind, 2, 0, ft_hook, &v);
-	mlx_hook(v.mlx_wind, 17, 0, ft_close, &v);
-	mlx_loop(v.mlx_p);
-	// for (int i = 0; v.s[i]; i++)
-	// {
-	// 	printf("> %s\n", v.s[i]);
-	// }
+	var.moves = 1;
+	ft_struct_initializer(&var);
+	draw_textures(&var);
+	mlx_hook(var.mlx_wind, KEYPRESS, 0, ft_hook, &var);
+	mlx_hook(var.mlx_wind, CLOSE_BTN, 0, ft_close, &var);
+	mlx_loop(var.mlx_p);
+	check_isfree(var.s);
 	return (0);
 }

@@ -42,6 +42,7 @@ void	ft_check_validpath(char **map)
 		}
 		i++;
 	}
+	check_isfree(map);
 }
 
 void	valid_path(t_data *v, char **map)
