@@ -20,7 +20,6 @@ SRC = check_map.c \
 		split.c \
 		struct_intia.c \
 		substr.c \
-		test.c \
 		utils.c \
 		valid_path.c \
 		directions.c \
