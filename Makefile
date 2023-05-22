@@ -10,7 +10,7 @@ SRC = check_map.c \
 		drawing.c \
 		find.c \
 		finish_game.c \
-		get_position.c \
+		mapping_util.c \
 		load_img.c \
 		mapping.c \
 		moves.c \
