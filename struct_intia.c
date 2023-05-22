@@ -52,5 +52,4 @@ void ft_struct_initializer(t_data *map)
 	map->pos_x = pos_player(map->s, 'x');
 	map->pos_y = pos_player(map->s, 'y');
 	ft_load_images(map);
-	// mlx_loop(map->mlx_p);
 }

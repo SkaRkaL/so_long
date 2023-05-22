@@ -64,6 +64,8 @@ int	map_check(t_data *map)
 	if (!map)
 		return (0);
 	tmp = (char **)malloc(sizeof(char *) * (row_size(map->s) + 1));
+	if (tmp == NULL)
+		return (0);
 	while (map->s[i])
 	{
 		tmp[i] = ft_substr(map->s[i], 0, ft_strlen(map->s[0]));
