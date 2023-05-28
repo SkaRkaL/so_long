@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   find.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sakarkal <sakarkal@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/29 00:02:17 by sakarkal          #+#    #+#             */
+/*   Updated: 2023/05/29 00:02:18 by sakarkal         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
 
-int __find(char	**map, t_data *v)
+int	__find(char	**map, t_data *v)
 {
 	int	i;
 	int	j;
@@ -9,10 +21,10 @@ int __find(char	**map, t_data *v)
 	v->c = 0;
 	v->e = 0;
 	v->p = 0;
-	while(map[++i])
+	while (map[++i])
 	{
 		j = 0;
-		while(map[i][j])
+		while (map[i][j])
 		{
 			if (map[i][j] == 'C')
 				v->c++;
@@ -23,7 +35,7 @@ int __find(char	**map, t_data *v)
 			j++;
 		}
 	}
-	if(v->c == 0 || v->p != 1 || v->e != 1)
+	if (v->c == 0 || v->p != 1 || v->e != 1)
 		return (0);
 	return (1);
 }

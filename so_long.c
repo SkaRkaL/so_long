@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   so_long.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sakarkal <sakarkal@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/29 00:07:08 by sakarkal          #+#    #+#             */
+/*   Updated: 2023/05/29 00:09:03 by sakarkal         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
 
 int	test_ber(char *av)
@@ -7,17 +19,19 @@ int	test_ber(char *av)
 	i = ft_strlen(av);
 	if (i < 5)
 		return (0);
-	if (av[i - 1] != 'r' || av[i - 2] != 'e' || av[i - 3] != 'b' || av[i - 4] != '.')
+	if (av[i - 1] != 'r' || av[i - 2] != 'e' || \
+		av[i - 3] != 'b' || av[i - 4] != '.')
 		return (0);
 	return (1);
 }
 
-static int ft_hook(int keycode, t_data *map)
+static int	ft_hook(int keycode, t_data *map)
 {
 	if (keycode == 53)
 		ft_close(map);
-	if (keycode == A || keycode == D || keycode == S || keycode == W ||
-		keycode == ARROW_RIGHT || keycode == ARROW_LEFT || keycode == ARROW_UP || keycode == ARROW_DOWN)
+	if (keycode == A || keycode == D || keycode == S || keycode == W || \
+		keycode == ARROW_RIGHT || keycode == ARROW_LEFT || \
+		keycode == ARROW_UP || keycode == ARROW_DOWN)
 	{
 		ft_destory_images(map);
 		move_p(keycode, map);

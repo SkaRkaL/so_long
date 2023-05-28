@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   mapping.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sakarkal <sakarkal@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/29 00:04:27 by sakarkal          #+#    #+#             */
+/*   Updated: 2023/05/29 00:04:50 by sakarkal         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
 
-static int check_len(int *i, int len, char **map)
+static int	check_len(int *i, int len, char **map)
 {
 	*i = 0;
 	while (map[*i])
@@ -12,9 +24,9 @@ static int check_len(int *i, int len, char **map)
 	return (1);
 }
 
-static int check_line(char **map, int i)
+static int	check_line(char **map, int i)
 {
-	int tmp_i;
+	int	tmp_i;
 
 	tmp_i = 0;
 	while (map[0][tmp_i] == '1' && map[i - 1][tmp_i] == '1')
@@ -22,9 +34,9 @@ static int check_line(char **map, int i)
 	return (tmp_i);
 }
 
-static int check_space(char **map, int len)
+static int	check_space(char **map, int len)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (map[i])
@@ -36,10 +48,10 @@ static int check_space(char **map, int len)
 	return (1);
 }
 
-static int check_p_c_e(char **map)
+static int	check_p_c_e(char **map)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	while (map[i])
@@ -47,7 +59,8 @@ static int check_p_c_e(char **map)
 		j = 0;
 		while (map[i][j])
 		{
-			if (map[i][j] != '0' && map[i][j] != '1' && map[i][j] != 'C' && map[i][j] != 'P' && map[i][j] != 'E')
+			if (map[i][j] != '0' && map[i][j] != '1'
+			&& map[i][j] != 'C' && map[i][j] != 'P' && map[i][j] != 'E')
 				return (0);
 			j++;
 		}
@@ -58,9 +71,10 @@ static int check_p_c_e(char **map)
 
 int	map_check(t_data *map)
 {
-	int	i = 0;
+	int		i;
 	char	**tmp;
 
+	i = 0;
 	if (!map)
 		return (0);
 	tmp = (char **)malloc(sizeof(char *) * (row_size(map->s) + 1));

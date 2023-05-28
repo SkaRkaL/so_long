@@ -1,19 +1,31 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   drawing.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sakarkal <sakarkal@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/29 00:01:22 by sakarkal          #+#    #+#             */
+/*   Updated: 2023/05/29 00:01:43 by sakarkal         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
 
-int __image(t_data *map, int x, int y, void *img)
+int	__image(t_data *map, int x, int y, void *img)
 {
-	void *mp;
-	void *wp;
+	void	*mp;
+	void	*wp;
 
 	mp = map->mlx_p;
 	wp = map->mlx_wind;
 	return (mlx_put_image_to_window(mp, wp, img, x, y));
 }
 
-void draw_textures(t_data *map)
+void	draw_textures(t_data *map)
 {
-	int x;
-	int y;
+	int	x;
+	int	y;
 
 	y = 0;
 	while (map->s[y])

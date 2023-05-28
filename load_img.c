@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   load_img.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sakarkal <sakarkal@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/29 00:02:58 by sakarkal          #+#    #+#             */
+/*   Updated: 2023/05/29 00:02:59 by sakarkal         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
 
-void *xpm_to_image(void *mlx_p, char *xpm)
+void	*xpm_to_image(void *mlx_p, char *xpm)
 {
-	int wh;
-	void *ptr;
+	int		wh;
+	void	*ptr;
 
 	wh = 64;
 	ptr = mlx_xpm_file_to_image(mlx_p, xpm, &wh, &wh);
@@ -15,7 +27,7 @@ void *xpm_to_image(void *mlx_p, char *xpm)
 	return (ptr);
 }
 
-void ft_load_images(t_data *g_data)
+void	ft_load_images(t_data *g_data)
 {
 	g_data->wall = xpm_to_image(g_data->mlx_p, WALL);
 	g_data->space = xpm_to_image(g_data->mlx_p, SP);

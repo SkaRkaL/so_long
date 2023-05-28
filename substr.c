@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   substr.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sakarkal <sakarkal@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/29 00:10:31 by sakarkal          #+#    #+#             */
+/*   Updated: 2023/05/29 00:10:48 by sakarkal         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
 
 int	ft_strlcpy(char *dst, char *src, int dstsize)
@@ -42,7 +54,7 @@ char	*ft_strdup(char *s1)
 char	*ft_substr(char *s, int start, int len)
 {
 	char	*str;
-	int	i;
+	int		i;
 
 	if (!s)
 		return (NULL);

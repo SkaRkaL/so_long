@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   struct_intia.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sakarkal <sakarkal@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/29 00:09:47 by sakarkal          #+#    #+#             */
+/*   Updated: 2023/05/29 00:10:14 by sakarkal         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
 
-static int pos_player(char **map, char pos)
+static int	pos_player(char **map, char pos)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	while (map[i])
@@ -22,10 +34,10 @@ static int pos_player(char **map, char pos)
 	return (0);
 }
 
-void *ft_xpm2image(void *mlx_p, char *xpm)
+void	*ft_xpm2image(void *mlx_p, char *xpm)
 {
-	int wh;
-	void *ptr;
+	int		wh;
+	void	*ptr;
 
 	wh = 64;
 	ptr = mlx_xpm_file_to_image(mlx_p, xpm, &wh, &wh);
@@ -34,9 +46,9 @@ void *ft_xpm2image(void *mlx_p, char *xpm)
 	return (ptr);
 }
 
-void ft_struct_initializer(t_data *map)
+void	ft_struct_initializer(t_data *map)
 {
-	int wh;
+	int	wh;
 
 	wh = 64;
 	map->wh = wh;
