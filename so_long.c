@@ -6,7 +6,7 @@
 /*   By: sakarkal <sakarkal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 00:07:08 by sakarkal          #+#    #+#             */
-/*   Updated: 2023/05/29 00:09:03 by sakarkal         ###   ########.fr       */
+/*   Updated: 2023/06/08 00:06:05 by sakarkal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,35 +41,41 @@ static int	ft_hook(int keycode, t_data *map)
 	return (1);
 }
 
+void	parsing(char *str, t_data *var, char *line, int fd)
+{
+	if (test_ber(str) == 0)
+	{
+		exit(write(2, "Error\n", 7));
+	}
+	fd = open(str, O_RDONLY);
+	if (fd == -1)
+	{
+		ft_putstr_fd("ERROR fd\n", 2);
+		exit(1);
+	}
+	var->s = ft_split(gnl(fd, line), '\n');
+	if (var->s == NULL)
+	{
+		ft_putstr_fd("ERROR_MAP\n", 2);
+		exit(1);
+	}
+	if (test_newline(line) == 0 || map_check(var) == 0)
+	{
+		ft_putstr_fd("ERROR_MAP <->\n", 2);
+		exit(1);
+	}
+}
+
 int	main(int ac, char **av)
 {
 	int		fd;
-	char	line[9999];
+	char	line[999999];
 	t_data	var;
 
 	if (ac != 2)
 		return (0);
-	if (test_ber(av[1]) == 0)
-	{
-		exit(write(2, "Error\n", 7));
-	}
-	fd = open(av[1], O_RDONLY);
-	if (fd == -1)
-	{
-		ft_putstr_fd("ERROR fd\n", 2);
-		return (1);
-	}
-	var.s = ft_split(gnl(fd, line), '\n');
-	if (var.s == NULL)
-	{
-		ft_putstr_fd("ERROR_MAP\n", 2);
-		return (1);
-	}
-	if (test_newline(line) == 0 || map_check(&var) == 0)
-	{
-		ft_putstr_fd("ERROR_MAP\n", 2);
-		return (1);
-	}
+	fd = 0;
+	parsing(av[1], &var, line, fd);
 	var.moves = 1;
 	ft_struct_initializer(&var);
 	draw_textures(&var);

@@ -6,7 +6,7 @@
 #    By: sakarkal <sakarkal@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/29 00:18:14 by sakarkal          #+#    #+#              #
-#    Updated: 2023/05/29 00:18:15 by sakarkal         ###   ########.fr        #
+#    Updated: 2023/06/08 00:00:37 by sakarkal         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,7 @@ SRC = check_map.c \
 		moves.c \
 		printer.c \
 		putnbr.c \
+		map_checker.c \
 		so_long.c \
 		split.c \
 		struct_intia.c \

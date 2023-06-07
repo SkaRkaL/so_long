@@ -6,7 +6,7 @@
 /*   By: sakarkal <sakarkal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 00:09:26 by sakarkal          #+#    #+#             */
-/*   Updated: 2023/05/29 00:09:27 by sakarkal         ###   ########.fr       */
+/*   Updated: 2023/06/08 00:06:25 by sakarkal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ typedef struct s_var
 	int		moves;
 }			t_data;
 
+int		map_checker(int *i, t_data *map);
 //---------------------------------------
 void	ft_putnbr(int n);
 int		map_check(t_data *map);

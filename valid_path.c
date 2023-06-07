@@ -6,7 +6,7 @@
 /*   By: sakarkal <sakarkal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 00:11:39 by sakarkal          #+#    #+#             */
-/*   Updated: 2023/05/29 00:16:15 by sakarkal         ###   ########.fr       */
+/*   Updated: 2023/06/07 23:41:53 by sakarkal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,7 @@ void	ft_flood_fill(char **map, int x, int y)
 			x >= row_size(map) || map[x][y] == '1' || \
 			map[x][y] == 'F' || map[x][y] == 'E')
 		return ;
-	if (map[x][y] != 'P')
-		map[x][y] = 'F';
+	map[x][y] = 'F';
 	ft_flood_fill(map, x - 1, y);
 	ft_flood_fill(map, x + 1, y);
 	ft_flood_fill(map, x, y - 1);

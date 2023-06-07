@@ -6,7 +6,7 @@
 /*   By: sakarkal <sakarkal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 00:00:04 by sakarkal          #+#    #+#             */
-/*   Updated: 2023/05/29 00:00:19 by sakarkal         ###   ########.fr       */
+/*   Updated: 2023/06/07 22:59:12 by sakarkal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ int	test_newline(char *line)
 
 	i = 0;
 	if (!line)
+		return (0);
+	if (line[0] == '\n' || line[ft_strlen(line) - 1] == '\n')
 		return (0);
 	while (line[i])
 	{
